@@ -13,9 +13,7 @@ class Prestamo{
         this.total=total,
         this.pagos=pagos
     }
-    datosPrestamo(){
-    return `La cantidad solicitada es ${this.cantidad} en un plazo de ${this.meses}, por lo que el monto total sera de ${this.total} en pagos de ${this.pagos.toFixed(2)}`
-    }
+    
 }
 
 
@@ -60,17 +58,17 @@ totales()
 const prestamo1 = new Prestamo(cantidad, meses, total, pagos)
 const Prestamos = [prestamo1]
 
-console.log(Prestamos.map(prestamo =>{	
-    return{				
-        Cantidad: prestamo.cantidad,
-        Meses: prestamo.meses,
-        total: prestamo.total,
-        pagos: prestamo.pagos.toFixed(2)
-    }
-}))
+Prestamos.forEach(dato => {
+    contenedor.innerHTML +=`
+    <p>El prestamo solicitado es de: ${dato.cantidad} pesos a pagar en ${dato.meses} meses, 
+    por lo que usted pagará un total de ${dato.total} pesos en cuotas de ${dato.pagos.toFixed(2)} mensuales</p>
+    
+    
+    `
+}
+    )
 
 
-alert(prestamo1.datosPrestamo(cantidad, meses, total, pagos))
 
 
 
